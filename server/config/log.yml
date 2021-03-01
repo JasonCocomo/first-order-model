@@ -1,0 +1,28 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+    simple:
+        format: '%(asctime)s %(levelname)s %(message)s'
+    upgrade:
+        format: "%(asctime)s - %(filename)s <PID: %(process)d -%(name)s> -%(levelname)s - %(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stdout
+
+    file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: DEBUG
+        formatter: upgrade
+        filename: ./logs/first-order-server/first-order-server.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20 #保留20个log文件
+        encoding: utf8
+
+root:
+    level: INFO
+    handlers: [console, file_handler]
