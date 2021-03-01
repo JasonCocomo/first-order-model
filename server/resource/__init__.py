@@ -1,1 +1,1 @@
-from resource import VideoResource, FrameData
+from .resource import VideoResource, FrameData

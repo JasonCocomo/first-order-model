@@ -2,9 +2,7 @@ from abc import ABC, abstractmethod
 import cv2
 import logging
 import numpy as np
-
 from server.util.setup_logging import get_logger
-from server.util.ppd_util import conver_bool_mask_to_onezeros
 
 logger = get_logger(__name__, level=logging.DEBUG)
 
